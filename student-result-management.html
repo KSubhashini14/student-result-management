@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Management</title>
+    <meta charset="UTF-8">
+    <meta name="author"
+		content="Subhashini">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #f2f4f8;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 380px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            background: #5b7bd5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4a69bd;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #f1f1f1;
+        }
+	#r
+	{
+		background-color:#5b7bd5;
+		color:white;
+		font-size:15px;
+	}
+	#r:hover
+	{
+		background: #4a69bd;
+		cursor: pointer;
+	}
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Result Management</h2>
+
+        <input type="text" id="name" placeholder="Student Name" required>
+        <input type="number" id="m1" placeholder="Subject 1 Marks" required>
+        <input type="number" id="m2" placeholder="Subject 2 Marks">
+        <input type="number" id="m3" placeholder="Subject 3 Marks">
+        <input type="number" id="m4" placeholder="Subject 4 Marks">
+        <input type="number" id="m5" placeholder="Subject 5 Marks">
+
+        <button onclick="calculate()">Calculate</button>
+	<input type="reset" value="Reset" id="r">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sub 1</th>
+                <th>Sub 2</th>
+                <th>Sub 3</th>
+                <th>Sub 4</th>
+                <th>Sub 5</th>
+                <th>Total</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="rname"></td>
+                <td id="r1"></td>
+                <td id="r2"></td>
+                <td id="r3"></td>
+                <td id="r4"></td>
+                <td id="r5"></td>
+                <td id="tot"></td>
+                <td id="per"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function calculate() {
+            let name = document.getElementById("name").value;
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+            let m4 = Number(document.getElementById("m4").value);
+            let m5 = Number(document.getElementById("m5").value);
+
+            let total = m1 + m2 + m3 + m4 + m5;
+            let percentage = (total / 500) * 100;
+
+            document.getElementById("rname").innerText = name;
+            document.getElementById("r1").innerText = m1;
+            document.getElementById("r2").innerText = m2;
+            document.getElementById("r3").innerText = m3;
+            document.getElementById("r4").innerText = m4;
+            document.getElementById("r5").innerText = m5;
+            document.getElementById("tot").innerText = total;
+            document.getElementById("per").innerText = percentage.toFixed(2) + "%";
+        }
+    </script>
+
+</body>
+</html>
